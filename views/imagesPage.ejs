@@ -5,31 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Upload</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
   
-<body>
-    <h1>To Upload Image on mongoDB</h1>
+<body style="text-align : center">
+    <h1 class="display m-3">Upload Image on mongoDB</h1>
     <hr>
-    <div>
-        <form action="/" method="POST" enctype="multipart/form-data">
+    <div style="width : 520px; margin: 0 auto" >
+        <form class="form-group" action="/" method="POST" enctype="multipart/form-data">
             <div>
-                <label for="name">Image Title</label>
-                <input type="text" id="name" placeholder="Name" 
+                <input class="form-control m-1" type="text" id="name" placeholder="Name" 
                        value="" name="name" required>
             </div>
             <div>
-                <label for="desc">Image Description</label>
-                <textarea id="desc" name="desc" value="" rows="2" 
+                <textarea class="form-control m-1" id="desc" name="desc" value="" rows="2" 
                           placeholder="Description" required>
                 </textarea>
             </div>
             <div>
-                <label for="image">Upload Image</label>
-                <input type="file" id="image" 
+                <input class="form-control m-1" type="file" id="image" 
                        name="image" value="" required>
             </div>
             <div>
-                <button type="submit">Submit</button>
+                <button class="btn btn-primary"type="submit">Submit</button>
             </div>
         </form>
     </div>
@@ -39,19 +37,13 @@
     <h1>Uploaded Images</h1>
     <div>
         <% images.forEach(function(image) { %>
-        <div>
-            <div>
-                <img src="data:image/<%=image.img.contentType%>;base64,
+        <div class="m-2" style="display: inline-block">
+            <div style="display: inline-block">
+                <img style="width: 520px; border-radius : 15px ;"  src="data:image/<%=image.img.contentType%>;base64,
                      <%=image.img.data.toString('base64')%>">
                 <div>
-                    <h5><%= image.name %></h5>
-                      
-  
-  
-<p><%= image.desc %></p>
-  
-  
-  
+                    <h3><%= image.name %></h3>
+										<p><%= image.desc %></p>
                 </div>
             </div>
         </div>
